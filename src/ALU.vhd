@@ -59,24 +59,25 @@ begin
                 v_sum := unsigned('0' & i_A) + unsigned('0' & i_B);
                 v_result := std_logic_vector(v_sum(7 downto 0));
                 v_carry := v_sum(8);
-
                 -- Overflow for addition:
-                -- same signs going in, different sign coming out
                 if (i_A(7) = i_B(7)) and (i_A(7) /= v_result(7)) then
                     v_overflow := '1';
                 else
                     v_overflow := '0';
                 end if;
-
             -- 001: SUBTRACT
             -- A - B = A + not(B) + 1
+            
+            
+            
+            
+            
+            
             when "001" =>
                 v_sum := unsigned('0' & i_A) + unsigned('0' & (not i_B)) + to_unsigned(1, 9);
                 v_result := std_logic_vector(v_sum(7 downto 0));
                 v_carry := v_sum(8);
-
                 -- Overflow for subtraction:
-                -- different signs going in, result sign different from A
                 if (i_A(7) /= i_B(7)) and (i_A(7) /= v_result(7)) then
                     v_overflow := '1';
                 else
@@ -100,6 +101,9 @@ begin
         -- Negative flag: MSB of result
         v_negative := v_result(7);
 
+
+
+
         -- Zero flag: result is all zeros
         if v_result = x"00" then
             v_zero := '1';
@@ -110,7 +114,12 @@ begin
         -- Output result
         o_result <= v_result;
 
-        -- Flags from book: {N, Z, C, V}
+
+
+
+
+
+        -- Flags
         o_flags <= v_negative & v_zero & v_carry & v_overflow;
 
     end process;

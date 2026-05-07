@@ -63,6 +63,15 @@ begin
 
                     when S_RESULT =>
                         r_state <= S_CLEAR;
+                        
+                        
+                        
+                        
+                      
+                        
+                        
+                        
+                        
                 end case;
             end if;
         end if;
@@ -71,6 +80,8 @@ begin
     -- One-hot output
     process(r_state)
     begin
+    
+    
         case r_state is
             when S_CLEAR =>
                 o_cycle <= "0001";
@@ -83,6 +94,14 @@ begin
 
             when S_RESULT =>
                 o_cycle <= "1000";
+                
+                
+                
+                
+                
+                
+                
+                
         end case;
     end process;
 

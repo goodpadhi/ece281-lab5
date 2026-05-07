@@ -69,8 +69,8 @@ architecture top_basys3_arch of top_basys3 is
     -- change these names to match your file.
     component sevenseg_decoder is
         Port (
-            i_digit : in  std_logic_vector(3 downto 0);
-            o_seg   : out std_logic_vector(6 downto 0)
+            i_Hex   : in  std_logic_vector(3 downto 0);
+            o_seg_n : out std_logic_vector(6 downto 0)
         );
     end component;
 
@@ -126,8 +126,8 @@ begin
 
     u_sevenseg_decoder : sevenseg_decoder
         port map (
-            i_digit => w_current_digit,
-            o_seg   => w_digit_seg
+            i_Hex   => w_current_digit,
+            o_seg_n => w_digit_seg
         );
 
     -- REGISTER LOGIC -----------------------------------
